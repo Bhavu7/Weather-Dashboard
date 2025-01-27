@@ -4,45 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Dashboard - README</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    h1, h2, h3 {
-      color: #2c3e50;
-    }
-    code {
-      background-color: #f4f4f4;
-      padding: 2px 5px;
-      border-radius: 3px;
-      font-family: monospace;
-    }
-    pre {
-      background-color: #f4f4f4;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
-    }
-    a {
-      color: #3498db;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .section {
-      margin-bottom: 30px;
-    }
-    .section h2 {
-      border-bottom: 2px solid #3498db;
-      padding-bottom: 5px;
-    }
-  </style>
 </head>
 <body>
   <h1>Weather Dashboard</h1>
@@ -158,12 +119,13 @@ cd weather-dashboard</code></pre>
 
   <div class="section">
     <h2>Screenshots</h2>
-    <p><img src="screenshot.png" alt="Weather Dashboard Screenshot" style="max-width: 100%;"></p>
+    <p><img src="wd1.png" alt="Weather Dashboard Screenshot" style="max-width: 100%;"></p>
+    <p><img src="wd2.png" alt="Weather Dashboard Screenshot" style="max-width: 100%;"></p>
   </div>
 
   <div class="section">
     <h2>Live Demo</h2>
-    <p><a href="https://your-live-demo-link.com" target="_blank">Live Demo</a></p>
+    <p><a href="https://bhavu7.github.io/Weather-Dashboard/" target="_blank">Live Demo</a></p>
   </div>
 
   <div class="section">
