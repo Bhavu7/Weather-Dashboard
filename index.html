@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container-main">
+      <div class="title-dashboard">
+        <h1>Weather Dashboard</h1>
+      </div>
+      <div class="weather-input">
+        <input type="text" id="city-input" placeholder="Enter city name" />
+        <button class="search-btn">Search</button><br />
+        <span>or</span>
+        <div class="separation">
+          <button id="Location-btn" class="location-button">
+            Use Current Location
+          </button>
+        </div>
+      </div>
+      <div class="weather-data">
+        <div class="current-weather">
+          <div class="details">
+            <h2>Anand (2024-10-7)</h2>
+            <h4>Temperature</h4>
+            <h4>Wind</h4>
+            <h4>Humidity</h4>
+          </div>
+          <div class="icon">
+            <script
+              src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+              type="module"
+            ></script>
+
+            <dotlottie-player
+              src="https://lottie.host/ecd831ba-ef29-43d3-a346-b4b1a96277bf/9YBlUd6sy1.json"
+              background="transparent"
+              speed="1"
+              style="width: 100px; height: 100px"
+              loop
+              autoplay
+            ></dotlottie-player>
+            <h4>Current Weather Info</h4>
+          </div>
+        </div>
+      </div>
+      <div class="days-forecast">
+        <div class="title">
+          <h2>5-Day Forecast</h2>
+        </div>
+        <ul class="weather-cards">
+          <li class="card">
+            <h3>(2024-10-07)</h3>
+            <div class="logo">
+              <!-- <img src="https://openweathermap.org/img/wn/@2x.png" alt="Weather Icon"> -->
+              <script
+                src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                type="module"
+              ></script>
+
+              <dotlottie-player
+                src="https://lottie.host/28ac0eb5-bd18-4135-8b96-6740c2295855/uoGu3NA0XH.json"
+                background="transparent"
+                speed="0.7"
+                style="width: 50px; height: 50px"
+                loop
+                autoplay
+              ></dotlottie-player>
+            </div>
+            <h4>Temperature</h4>
+            <h4>Wind</h4>
+            <h4>Humidity</h4>
+          </li>
+          <li class="card">
+            <h3>(2024-10-07)</h3>
+            <div class="logo">
+              <script
+                src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                type="module"
+              ></script>
+
+              <dotlottie-player
+                src="https://lottie.host/b0994fba-3818-438e-922e-28a56e8fd8e2/s61xua1agq.json"
+                background="transparent"
+                speed="0.7"
+                style="width: 50px; height: 50px"
+                loop
+                autoplay
+              ></dotlottie-player>
+            </div>
+            <h4>Temperature</h4>
+            <h4>Wind</h4>
+            <h4>Humidity</h4>
+          </li>
+          <li class="card">
+            <h3>(2024-10-07)</h3>
+            <div class="logo">
+              <script
+                src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                type="module"
+              ></script>
+              <dotlottie-player
+                src="https://lottie.host/6d1e51b7-7767-4e81-9579-3e4bf7668d93/GJdfgyjydj.json"
+                background="transparent"
+                speed="0.7"
+                style="width: 50px; height: 50px"
+                loop
+                autoplay
+              ></dotlottie-player>
+            </div>
+            <h4>Temperature</h4>
+            <h4>Wind</h4>
+            <h4>Humidity</h4>
+          </li>
+          <li class="card">
+            <h3>(2024-10-07)</h3>
+            <div class="logo">
+              <script
+                src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                type="module"
+              ></script>
+
+              <dotlottie-player
+                src="https://lottie.host/2ba67172-46ba-43ca-a56c-4b392154b706/vpQ4Dkj4HW.json"
+                background="transparent"
+                speed="0.7"
+                style="width: 50px; height: 50px"
+                loop
+                autoplay
+              ></dotlottie-player>
+            </div>
+            <h4>Temperature</h4>
+            <h4>Wind</h4>
+            <h4>Humidity</h4>
+          </li>
+          <li class="card">
+            <h3>(2024-10-07)</h3>
+            <div class="logo">
+              <script
+                src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                type="module"
+              ></script>
+
+              <dotlottie-player
+                src="https://lottie.host/134ddd03-fa28-4e3a-b615-e55a2657e1ea/RP2VqpQfBp.json"
+                background="transparent"
+                speed="0.7"
+                style="width: 50px; height: 50px"
+                loop
+                autoplay
+              ></dotlottie-player>
+            </div>
+            <h4>Temperature</h4>
+            <h4>Wind</h4>
+            <h4>Humidity</h4>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+<script src="script.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
+  </body>
+</html>
