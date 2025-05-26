@@ -1,0 +1,61 @@
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      body {
+          font-family: "Inter", sans-serif;
+          background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+          min-height: 100vh;
+      }
+
+      .weather-card {
+          backdrop-filter: blur(10px);
+          background: rgba(255, 255, 255, 0.7);
+          transition: all 0.3s ease;
+      }
+
+      .weather-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-input:focus {
+          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+      }
+
+      .animate-float {
+          animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+
+          0%,
+          100% {
+              transform: translateY(0);
+          }
+
+          50% {
+              transform: translateY(-10px);
+          }
+      }
+
+      .gradient-text {
+          background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+      }
+
+      @keyframes float {
+
+          0%,
+          100% {
+              transform: translateY(0);
+          }
+
+          50% {
+              transform: translateY(-10px);
+          }
+      }
+
+      .animate-float {
+          animation: float 4s ease-in-out infinite;
+      }

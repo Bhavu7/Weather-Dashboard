@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="py-8 px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Watermark -->
+      <div
+        style="
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          z-index: 1000;
+          padding: 10px 15px;
+          border-radius: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          animation: float 4s ease-in-out infinite;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          backdrop-filter: blur(10px);
+        "
+      >
+        Build By
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#3b82f6"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+          ></path>
+        </svg>
+        <a
+          href="https://github.com/Bhavu7"
+          target="_blank"
+          style="
+            text-decoration: none;
+            color: #0062ff;
+            font-weight: 600;
+            background: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+          "
+        >
+          Bhavesh Bhoi
+        </a>
+      </div>
+
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-2">
+          Weather Dashboard
+        </h1>
+        <p class="text-gray-600">
+          Get accurate weather forecasts for any location
+        </p>
+      </div>
+
+      <!-- Search Section -->
+      <div class="flex flex-col items-center mb-10">
+        <div class="relative w-full max-w-md mb-4">
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Enter city name"
+            class="search-input w-full py-3 px-5 rounded-full border border-gray-300 focus:outline-none focus:border-indigo-500 transition-all duration-300 shadow-sm"
+          />
+          <button
+          title="Search"
+            class="search-btn absolute right-2 top-1/2 transform -translate-y-1/2 bg-indigo-500 text-white p-2 rounded-full hover:bg-indigo-600 transition-colors duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+        </div>
+        <span class="text-gray-500 mb-3">or</span>
+        <button
+          id="Location-btn"
+          class="flex items-center gap-2 bg-white text-indigo-600 py-2 px-6 rounded-full border border-indigo-200 hover:bg-indigo-50 transition-colors duration-300 shadow-sm"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+          Use Current Location
+        </button>
+      </div>
+
+      <!-- Current Weather -->
+      <div
+        id="current-weather"
+        class="weather-card rounded-2xl p-6 mb-8 shadow-lg"
+      >
+        <div
+          class="flex flex-col-reverse md:flex-row justify-between items-center"
+        >
+          <div class="mb-6 md:mb-0">
+            <h2 class="text-2xl font-semibold text-gray-800">
+              Search for a city to see weather
+            </h2>
+            <div class="mt-4 space-y-2">
+              <div class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-indigo-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                  />
+                </svg>
+                <span class="text-gray-600">Temperature: -</span>
+              </div>
+              <div class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-indigo-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"
+                  />
+                </svg>
+                <span class="text-gray-600">Wind: -</span>
+              </div>
+              <div class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-indigo-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
+                <span class="text-gray-600">Humidity: -</span>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <dotlottie-player
+              src="https://lottie.host/ecd831ba-ef29-43d3-a346-b4b1a96277bf/9YBlUd6sy1.json"
+              background="transparent"
+              speed="1"
+              style="width: 120px; height: 120px"
+              loop
+              autoplay
+            ></dotlottie-player>
+            <p class="text-gray-600 capitalize">-</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forecast Section -->
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">5-Day Forecast</h2>
+        <div
+          id="forecast-cards"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
+        >
+          <!-- Forecast cards will be inserted here -->
+          <div class="weather-card rounded-xl p-4 text-center animate-float">
+            <h3 class="font-medium text-gray-700 mb-2">-</h3>
+            <dotlottie-player
+              src="https://lottie.host/28ac0eb5-bd18-4135-8b96-6740c2295855/uoGu3NA0XH.json"
+              background="transparent"
+              speed="0.7"
+              style="width: 60px; height: 60px; margin: 0 auto"
+              loop
+              autoplay
+            ></dotlottie-player>
+            <p class="text-gray-600 mt-2">Temp: -</p>
+            <p class="text-gray-600">Wind: -</p>
+            <p class="text-gray-600">Humidity: -</p>
+          </div>
+          <div
+            class="weather-card rounded-xl p-4 text-center animate-float"
+            style="animation-delay: 0.2s"
+          >
+            <h3 class="font-medium text-gray-700 mb-2">-</h3>
+            <dotlottie-player
+              src="https://lottie.host/b0994fba-3818-438e-922e-28a56e8fd8e2/s61xua1agq.json"
+              background="transparent"
+              speed="0.7"
+              style="width: 60px; height: 60px; margin: 0 auto"
+              loop
+              autoplay
+            ></dotlottie-player>
+            <p class="text-gray-600 mt-2">Temp: -</p>
+            <p class="text-gray-600">Wind: -</p>
+            <p class="text-gray-600">Humidity: -</p>
+          </div>
+          <div
+            class="weather-card rounded-xl p-4 text-center animate-float"
+            style="animation-delay: 0.4s"
+          >
+            <h3 class="font-medium text-gray-700 mb-2">-</h3>
+            <dotlottie-player
+              src="https://lottie.host/6d1e51b7-7767-4e81-9579-3e4bf7668d93/GJdfgyjydj.json"
+              background="transparent"
+              speed="0.7"
+              style="width: 60px; height: 60px; margin: 0 auto"
+              loop
+              autoplay
+            ></dotlottie-player>
+            <p class="text-gray-600 mt-2">Temp: -</p>
+            <p class="text-gray-600">Wind: -</p>
+            <p class="text-gray-600">Humidity: -</p>
+          </div>
+          <div
+            class="weather-card rounded-xl p-4 text-center animate-float"
+            style="animation-delay: 0.6s"
+          >
+            <h3 class="font-medium text-gray-700 mb-2">-</h3>
+            <dotlottie-player
+              src="https://lottie.host/2ba67172-46ba-43ca-a56c-4b392154b706/vpQ4Dkj4HW.json"
+              background="transparent"
+              speed="0.7"
+              style="width: 60px; height: 60px; margin: 0 auto"
+              loop
+              autoplay
+            ></dotlottie-player>
+            <p class="text-gray-600 mt-2">Temp: -</p>
+            <p class="text-gray-600">Wind: -</p>
+            <p class="text-gray-600">Humidity: -</p>
+          </div>
+          <div
+            class="weather-card rounded-xl p-4 text-center animate-float"
+            style="animation-delay: 0.8s"
+          >
+            <h3 class="font-medium text-gray-700 mb-2">-</h3>
+            <dotlottie-player
+              src="https://lottie.host/134ddd03-fa28-4e3a-b615-e55a2657e1ea/RP2VqpQfBp.json"
+              background="transparent"
+              speed="0.7"
+              style="width: 60px; height: 60px; margin: 0 auto"
+              loop
+              autoplay
+            ></dotlottie-player>
+            <p class="text-gray-600 mt-2">Temp: -</p>
+            <p class="text-gray-600">Wind: -</p>
+            <p class="text-gray-600">Humidity: -</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
